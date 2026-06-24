@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শুভ গৃহপ্রবেশ - রাজকীয় নিমন্ত্রণপত্র</title>
+    <!-- Executive Premium Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-cream: #faf6ee;
+            --gold-metallic: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            --gold-solid: #b38728;
+            --dark-official: #111e16; 
+            --vintage-envelope: #c3b49f;
+            --vintage-dark-fold: #a3937d;
+            --shadow-3d: 0 30px 60px rgba(0,0,0,0.18), 0 12px 18px rgba(0,0,0,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            /* High-end low-contrast formal seamless background texture */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 15c-2-5-7-9-13-9 0 7 4 13 9 15-5 2-9 7-9 13 7 0 13-4 15-9 2 5 7 9 13 9 0-7-4-13-9-15 5-2 9-7 9-13-7 0-13 4-15 9z' fill='%23b38728' fill-opacity='0.03'/%3E%3C/svg%3E");
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            perspective: 1400px;
+        }
+
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .hidden { display: none !important; }
+
+        /* --- PAGE 1: OFFICIAL PORTAL --- */
+        .gate-wrapper {
+            width: 90%;
+            max-width: 460px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: elegantFadeIn 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 10;
+        }
+
+        .arabic-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--dark-official);
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .arabic-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: var(--gold-metallic);
+        }
+
+        /* Highly Detailed Premium Islamic Art Centerpiece */
+        .islamic-emblem-container {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 45px;
+            color: var(--gold-solid);
+            filter: drop-shadow(0 4px 10px rgba(179,135,40,0.25));
+        }
+
+        .form-container {
+            width: 100%;
+            background: #ffffff;
+            padding: 35px 25px;
+            border-radius: 2px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(179, 135, 40, 0.15);
+        }
+
+        .input-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: #777;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .name-field {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #ddd;
+            background: #fafafa;
+            font-size: 1.1rem;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s;
+            color: var(--dark-official);
+            font-weight: 500;
+            margin-bottom: 20px;
+            border-radius: 0;
+        }
+
+        .name-field:focus {
+            border-color: var(--gold-solid);
+            background: #fff;
+            box-shadow: 0 0 10px rgba(179, 135, 40, 0.1);
+        }
+
+        .action-button {
+            width: 100%;
+            padding: 16px;
+            background: var(--dark-official);
+            color: #fff;
+            border: none;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .action-button:hover {
+            background: #1a2f22;
+            letter-spacing: 3px;
+        }
+
+        /* --- PAGE 2: 3D LUXURY UNBOXING --- */
+        .presentation-space {
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+        }
+
+        /* Redesigned Premium Blessing Vector Display (Replacing text emojis) */
+        .premium-blessing-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+            color: var(--gold-solid);
+            opacity: 0.9;
+            animation: microFloat 4s ease-in-out infinite;
+        }
+
+        .blessing-icon {
+            width: 28px;
+            height: 28px;
+        }
+
+        .blessing-icon.home-icon {
+            width: 34px;
+            height: 34px;
+        }
+
+        /* 3D Structure Setup */
+        .stage-3d {
+            width: 100%;
+            max-width: 520px;
+            height: 380px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease-out;
+        }
+
+        .stage-3d:hover {
+            transform: rotateX(5deg) rotateY(-2deg);
+        }
+
+        .envelope-3d {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--vintage-envelope);
+            border-radius: 4px;
+            box-shadow: var(--shadow-3d);
+            transform-style: preserve-3d;
+        }
+
+        .env-body-shade {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.08) 0%, transparent 40%);
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .envelope-flap-3d {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 52%;
+            background: var(--vintage-dark-fold);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: top;
+            transform: rotateX(0deg);
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Opening Wax Seal Button */
+        .wax-seal {
+            position: absolute;
+            top: 52%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 42px;
+            height: 42px;
+            background: radial-gradient(circle, #b83b31 0%, #8a251e 100%);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 6;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .wax-seal:hover {
+            transform: translate(-50%, -50%) scale(1.12);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Envelope Calligraphy Inscription */
+        .outer-inscription {
+            position: absolute;
+            width: 100%;
+            bottom: 25%;
+            text-align: center;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .inscription-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            color: #6e6150;
+            margin-bottom: 5px;
+        }
+
+        .guest-name-luxury {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.2rem;
+            color: var(--dark-official);
+            font-weight: 600;
+        }
+
+        /* --- 3D INTERIOR CARD FRAME HOLDING ORIGINAL IMAGE --- */
+        .premium-card-interior {
+            position: absolute;
+            width: 94%;
+            height: 92%;
+            top: 4%;
+            left: 3%;
+            background: #ffffff;
+            padding: 8px;
+            transform: translateY(0) translateZ(-10px) scale(0.95);
+            opacity: 0;
+            z-index: 1;
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 0 0 1px rgba(179,135,40,0.2);
+        }
+
+        /* Responsive image rendering to stay crystal clear inside the 3D panel */
+        .original-invitation-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* State Modifiers for 3D Reveal Trigger */
+        .stage-3d.unboxed .envelope-flap-3d {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .stage-3d.unboxed .wax-seal {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        .stage-3d.unboxed .premium-card-interior {
+            opacity: 1;
+            transform: translateY(-130px) translateZ(100px) scale(1.08);
+            z-index: 20;
+            height: auto;
+            max-height: 540px;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.3);
+        }
+
+        @keyframes elegantFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes microFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- STAGE 1: PORTAL GUEST IDENTIFICATION -->
+    <div class="gate-wrapper" id="portalStage">
+        <div class="arabic-header">اَلسَّলَামُ عَلَيْكُمْ</div>
+        
+        <!-- High-End Detailed Vector Islamic Mandala & Star Ornament -->
+        <div class="islamic-emblem-container">
+            <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="1.2">
+                <!-- Outer Geometric Star Border -->
+                <path d="M50 2 L64 16 L84 16 L84 36 L98 50 L84 64 L84 84 L64 84 L50 98 L36 84 L16 84 L16 64 L2 50 L16 36 L16 16 L36 16 Z" />
+                <!-- Inner Intersecting Octagon Layers -->
+                <path d="M50 12 L77 50 L50 88 L23 50 Z" stroke-width="0.8"/>
+                <path d="M12 50 L50 77 L88 50 L50 23 Z" stroke-width="0.8"/>
+                <!-- Center Crescent and Star Focal Point -->
+                <circle cx="50" cy="50" r="15" stroke-width="1" stroke-dasharray="2,2"/>
+                <path d="M56 42 A 10 10 0 1 0 56 58 A 8 8 0 1 1 56 42 Z" fill="currentColor"/>
+                <polygon points="56,48 58,52 62,52 59,54 60,58 56,55 52,58 53,54 50,52 54,52" fill="currentColor"/>
+            </svg>
+        </div>
+
+        <div class="form-container">
+            <div class="input-label">Secure Access Verification</div>
+            <input type="text" id="nameVerification" class="name-field" placeholder="Enter Your Name" required autocomplete="off">
+            <button type="button" class="action-button" onclick="verifyAndProceed()">SUBMIT</button>
+        </div>
+    </div>
+
+    <!-- STAGE 2: DYNAMIC LUXURY EXHIBITION -->
+    <div class="presentation-space hidden" id="exhibitionStage">
+        
+        <!-- Premium Coded Blessing Rows (Replacing the basic text emojis) -->
+        <div class="premium-blessing-row">
+            <!-- Sparkle Blessing -->
+            <svg class="blessing-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 11.6l-5.6 4.4L17.8 22 12 17.6 6.2 22l1.4-6阻止l-5.6-4.4 7.6-2.4z"/></svg>
+            <!-- Praying/Dua Hands Silhouette -->
+            <svg class="blessing-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 18h4M8 14c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5M6 10c0-4 3-7 6.5-7s6.5 3 6.5 7" />
+            </svg>
+            <!-- Premium Home Silhouette -->
+            <svg class="blessing-icon home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 10.5V21h6v-6h6v6h6V10.5L12 3z"/>
+            </svg>
+            <svg class="blessing-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 14c0 2.5-2 4.5-4.5 4.5S5 16.5 5 14M18 10c0 4-3 7-6.5 7S5 14 5 10" />
+            </svg>
+            <!-- Sparkle Blessing -->
+            <svg class="blessing-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2L22 11.6l-5.6 4.4L17.8 22 12 17.6 6.2 22l1.4-6.4-5.6-4.4 7.6-2.4z"/></svg>
+        </div>
+
+        <div class="stage-3d" id="envelopeRig">
+            <div class="envelope-3d">
+                <div class="env-body-shade"></div>
+                
+                <div class="envelope-flap-3d">
+                    <!-- Wax seal located dynamically at center-point edge -->
+                    <div class="wax-seal" onclick="execute3DUnboxing(event)"></div>
+                </div>
+                
+                <div class="outer-inscription">
+                    <div class="inscription-tag">EXCLUSIVELY PRESENTED TO</div>
+                    <div class="guest-name-luxury" id="insertedName">Guest</div>
+                </div>
+
+                <!-- Hidden Interior Presentation Card displaying original photo -->
+                <div class="premium-card-interior">
+                    <img src="image.png" alt="Invitation Card" class="original-invitation-image">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form Verification Control
+        function verifyAndProceed() {
+            const parsedName = document.getElementById('nameVerification').value.trim();
+            if(!parsedName) {
+                alert("Access Denied: Formal identification requires a name.");
+                return;
+            }
+            
+            document.getElementById('insertedName').innerText = parsedName;
+            document.getElementById('portalStage').classList.add('hidden');
+            document.getElementById('exhibitionStage').classList.remove('hidden');
+        }
+
+        // --- HIGH VELOCITY CONCENTRIC PARTY POPPER ENGINE ---
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particleArray = [];
+
+        function setViewport() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', setViewport);
+        setViewport();
+
+        class ExecutiveParticle {
+            constructor(originX, originY) {
+                this.x = originX;
+                this.y = originY;
+                const palette = ['#bf953f', '#b38728', '#111e16', '#de4437', '#2a754d', '#4285f4', '#ffffff'];
+                this.color = palette[Math.floor(Math.random() * palette.length)];
+                this.dimensions = Math.random() * 8 + 4;
+                
+                // Radical 360-degree explosive vector logic
+                const trajectoryAngle = Math.random() * Math.PI * 2;
+                const force = Math.random() * 15 + 8;
+                this.vx = Math.cos(trajectoryAngle) * force;
+                this.vy = Math.sin(trajectoryAngle) * force;
+                this.downwardPull = 0.28;
+                this.alpha = 1;
+                this.fadingRate = Math.random() * 0.012 + 0.008;
+            }
+            process() {
+                this.vy += this.downwardPull;
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= this.fadingRate;
+            }
+            render() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+                ctx.fillRect(this.x, this.y, this.dimensions, this.dimensions);
+                ctx.restore();
+            }
+        }
+
+        function generateConcentricBurst(x, y) {
+            for(let i=0; i<180; i++) {
+                particleArray.push(new ExecutiveParticle(x, y));
+            }
+        }
+
+        function executionLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particleArray = particleArray.filter(item => item.alpha > 0);
+            particleArray.forEach(item => {
+                item.process();
+                item.render();
+            });
+            if(particleArray.length > 0) {
+                requestAnimationFrame(executionLoop);
+            }
+        }
+
+        // 3D Animation Switch Function
+        function execute3DUnboxing(event) {
+            event.stopPropagation();
+            
+            // Get exact layout coordinates for the wax seal button to anchor the burst center
+            const boundary = event.target.getBoundingClientRect();
+            const anchorX = boundary.left + boundary.width / 2;
+            const anchorY = boundary.top + boundary.height / 2;
+
+            // Animate envelope components
+            document.getElementById('envelopeRig').classList.add('unboxed');
+
+            // Fire vectors
+            generateConcentricBurst(anchorX, anchorY);
+            executionLoop();
+        }
+    </script>
+</body>
+</html>
