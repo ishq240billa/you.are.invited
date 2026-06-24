@@ -2,9 +2,9 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>শুভ গৃহপ্রবেশ - রাজকীয় নিমন্ত্রণপত্র</title>
-    <!-- Executive Premium Typography & Pure Arabic Font Support -->
+    <!-- Executive Premium Typography & Global Arabic Font Pack -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
     
     <style>
@@ -15,25 +15,25 @@
             --dark-official: #111e16; 
             --vintage-envelope: #c3b49f;
             --vintage-dark-fold: #a3937d;
-            --shadow-3d: 0 30px 60px rgba(0,0,0,0.18), 0 12px 18px rgba(0,0,0,0.12);
+            --shadow-3d: 0 30px 60px rgba(0,0,0,0.2), 0 12px 22px rgba(0,0,0,0.15);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             background-color: var(--bg-cream);
-            /* High-end low-contrast formal seamless background texture */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 15c-2-5-7-9-13-9 0 7 4 13 9 15-5 2-9 7-9 13 7 0 13-4 15-9 2 5 7 9 13 9 0-7-4-13-9-15 5-2 9-7 9-13-7 0-13 4-15 9z' fill='%23b38728' fill-opacity='0.03'/%3E%3C/svg%3E");
             min-height: 100vh;
+            min-height: 100dvh; /* Android-collapse safety wrapper */
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            perspective: 1400px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
@@ -62,7 +62,8 @@
         }
 
         .arabic-header {
-            font-family: 'Amiri', serif;
+            /* Cross-platform native Arabic fallback font stack to prevent character boxes on slow networks */
+            font-family: 'Amiri', 'Noto Sans Arabic', 'Segoe UI Arabic', 'Arial Arabic', Tahoma, sans-serif;
             font-size: 3.2rem;
             font-weight: 700;
             color: var(--dark-official);
@@ -82,7 +83,6 @@
             background: var(--gold-metallic);
         }
 
-        /* High-End Detailed Vector Islamic Mandala & Star Ornament */
         .islamic-emblem-container {
             width: 140px;
             height: 140px;
@@ -149,26 +149,33 @@
             letter-spacing: 3px;
         }
 
-        /* --- PAGE 2: 3D LUXURY UNBOXING --- */
+        /* --- PAGE 2: 3D LUXURY UNBOXING SPACE --- */
         .presentation-space {
-            width: 100vw;
-            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 100dvh;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 10;
             padding: 20px;
-            position: relative;
+            perspective: 1400px;
+            perspective-origin: center center;
+            -webkit-perspective: 1400px;
+            -webkit-perspective-origin: center center;
         }
 
-        /* Responsive Portrait Envelope Layout - Locked to Absolute Screen Center */
+        /* Center-stabilized Portrait Stage Box */
         .stage-3d {
-            width: 85vw;
-            max-width: 400px;
-            height: 72vh;
-            max-height: 530px;
+            width: 100%;
+            max-width: 380px;
+            height: 500px;
             position: relative;
             transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
             transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             display: flex;
             justify-content: center;
@@ -184,10 +191,13 @@
             width: 100%;
             height: 100%;
             background: var(--vintage-envelope);
-            border-radius: 6px;
+            border-radius: 8px;
             box-shadow: var(--shadow-3d);
             transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
             z-index: 5;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         .env-body-shade {
@@ -195,12 +205,11 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to top, rgba(0,0,0,0.06) 0%, transparent 30%);
-            border-radius: 6px;
+            border-radius: 8px;
             pointer-events: none;
             z-index: 4;
         }
 
-        /* Premium Portrait Flap Architecture */
         .envelope-flap-3d {
             position: absolute;
             top: 0;
@@ -209,6 +218,7 @@
             height: 35%;
             background: var(--vintage-dark-fold);
             clip-path: polygon(0 0, 100% 0, 50% 100%);
+            -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
             transform-origin: top;
             transform: rotateX(0deg);
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -216,7 +226,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* Opening Wax Seal Button centered perfectly at the flap tip */
         .wax-seal {
             position: absolute;
             top: 35%;
@@ -238,7 +247,6 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         }
 
-        /* Envelope Calligraphy Inscription */
         .outer-inscription {
             position: absolute;
             width: 100%;
@@ -262,9 +270,13 @@
             font-size: 2.2rem;
             color: var(--dark-official);
             font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 10px;
         }
 
-        /* --- Flawless Center-Locked 3D Pop-Forward Interior Card Frame --- */
+        /* --- Absolute Center-Locked 3D Pop-Forward Interior Card Frame --- */
         .premium-card-interior {
             position: absolute;
             width: 94%;
@@ -274,20 +286,20 @@
             background: #ffffff;
             border: 1px solid var(--gold-solid);
             padding: 6px;
-            /* Anchored into the precise horizontal/vertical center frame */
-            transform: translateY(0) translateZ(-5px) scale(0.96);
+            transform: translate3d(0, 0, -2px) scale(0.97);
+            -webkit-transform: translate3d(0, 0, -2px) scale(0.97);
             opacity: 0;
             z-index: 1;
             transition: all 1.2s cubic-bezier(0.25, 1, 0.3, 1);
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-radius: 4px;
             pointer-events: none;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
-        /* Responsive image asset rules */
         .original-invitation-image {
             width: 100%;
             height: 100%;
@@ -295,7 +307,7 @@
             border-radius: 2px;
         }
 
-        /* --- ACTIVE STATE CONTROLS --- */
+        /* --- ACTIVE TRANSFORMATION RUNTIME ENGINE --- */
         
         .stage-3d.unboxed .envelope-flap-3d {
             transform: rotateX(180deg);
@@ -306,15 +318,17 @@
             opacity: 0;
             pointer-events: none;
             transform: translate(-50%, -50%) scale(0);
+            -webkit-transform: translate(-50%, -50%) scale(0);
         }
 
-        /* Glides directly forward on the Z-axis, remaining completely dead-centered */
+        /* Dead-centered Z-depth projection with no vertical shifting properties */
         .stage-3d.unboxed .premium-card-interior {
             opacity: 1;
-            transform: translateY(0) translateZ(140px) scale(1.04); 
+            transform: translate3d(0, 0, 140px) scale(1.04); 
+            -webkit-transform: translate3d(0, 0, 140px) scale(1.04); 
             z-index: 20;
             pointer-events: auto;
-            box-shadow: 0 30px 90px rgba(0,0,0,0.4);
+            box-shadow: 0 30px 90px rgba(0,0,0,0.45);
         }
 
         @keyframes elegantFadeIn {
@@ -329,9 +343,8 @@
 
     <!-- STAGE 1: PORTAL GUEST IDENTIFICATION -->
     <div class="gate-wrapper" id="portalStage">
-        <div class="arabic-header">اَلسَّলَامُ عَلَيْكُمْ</div>
+        <div class="arabic-header">اَلسَّلَامُ عَلَيْكُمْ</div>
         
-        <!-- High-End Detailed Vector Islamic Mandala & Star Ornament -->
         <div class="islamic-emblem-container">
             <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="1.2">
                 <path d="M50 2 L64 16 L84 16 L84 36 L98 50 L84 64 L84 84 L64 84 L50 98 L36 84 L16 84 L16 64 L2 50 L16 36 L16 16 L36 16 Z" />
@@ -376,7 +389,6 @@
     </div>
 
     <script>
-        // Gate Navigation Routine
         function verifyAndProceed() {
             const parsedName = document.getElementById('nameVerification').value.trim();
             if(!parsedName) {
