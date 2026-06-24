@@ -151,7 +151,7 @@
 
         /* --- PAGE 2: 3D LUXURY UNBOXING --- */
         .presentation-space {
-            width: 100%;
+            width: 100vw;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -161,11 +161,12 @@
             position: relative;
         }
 
-        /* Redesigned 3D Envelope Structure - Absolute Centering Anchor */
+        /* Responsive Portrait Envelope Layout - Locked to Absolute Screen Center */
         .stage-3d {
-            width: 100%;
+            width: 85vw;
             max-width: 400px;
-            height: 530px;
+            height: 72vh;
+            max-height: 530px;
             position: relative;
             transform-style: preserve-3d;
             transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
@@ -263,7 +264,7 @@
             font-weight: 600;
         }
 
-        /* --- Completely Re-centered 3D Pop-Forward Interior Card Frame --- */
+        /* --- Flawless Center-Locked 3D Pop-Forward Interior Card Frame --- */
         .premium-card-interior {
             position: absolute;
             width: 94%;
@@ -273,6 +274,7 @@
             background: #ffffff;
             border: 1px solid var(--gold-solid);
             padding: 6px;
+            /* Anchored into the precise horizontal/vertical center frame */
             transform: translateY(0) translateZ(-5px) scale(0.96);
             opacity: 0;
             z-index: 1;
@@ -293,13 +295,8 @@
             border-radius: 2px;
         }
 
-        /* --- ACTIVE MECHANICS STYLES --- */
+        /* --- ACTIVE STATE CONTROLS --- */
         
-        /* Gently stabilize envelope down to balance the opened top flap visually */
-        .stage-3d.unboxed {
-            transform: translateY(30px) rotateX(0deg) rotateY(0deg);
-        }
-
         .stage-3d.unboxed .envelope-flap-3d {
             transform: rotateX(180deg);
             z-index: 1;
@@ -311,10 +308,10 @@
             transform: translate(-50%, -50%) scale(0);
         }
 
-        /* Brings card directly forward on the Z axis, keeping it perfectly center screen */
+        /* Glides directly forward on the Z-axis, remaining completely dead-centered */
         .stage-3d.unboxed .premium-card-interior {
             opacity: 1;
-            transform: translateY(-30px) translateZ(140px) scale(1.05); 
+            transform: translateY(0) translateZ(140px) scale(1.04); 
             z-index: 20;
             pointer-events: auto;
             box-shadow: 0 30px 90px rgba(0,0,0,0.4);
@@ -332,7 +329,7 @@
 
     <!-- STAGE 1: PORTAL GUEST IDENTIFICATION -->
     <div class="gate-wrapper" id="portalStage">
-        <div class="arabic-header">اَلسَّلَامُ عَلَيْكُمْ</div>
+        <div class="arabic-header">اَلسَّলَامُ عَلَيْكُمْ</div>
         
         <!-- High-End Detailed Vector Islamic Mandala & Star Ornament -->
         <div class="islamic-emblem-container">
@@ -379,6 +376,7 @@
     </div>
 
     <script>
+        // Gate Navigation Routine
         function verifyAndProceed() {
             const parsedName = document.getElementById('nameVerification').value.trim();
             if(!parsedName) {
