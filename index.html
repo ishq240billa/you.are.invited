@@ -160,19 +160,19 @@
             overflow: visible;
         }
 
-        /* 3D Structure Setup */
+        /* Redesigned 3D Envelope Structure - Made Vertical to Match Card Shape */
         .stage-3d {
             width: 100%;
-            max-width: 480px;
-            height: 330px;
+            max-width: 420px;
+            height: 550px;
             position: relative;
             transform-style: preserve-3d;
             transition: transform 0.6s ease-out;
-            margin-top: 120px; /* Space created for the vertical card pop-up */
+            margin-top: 20px;
         }
 
         .stage-3d:hover {
-            transform: rotateX(5deg) rotateY(-2deg);
+            transform: rotateX(4deg) rotateY(-2deg);
         }
 
         .envelope-3d {
@@ -180,7 +180,7 @@
             width: 100%;
             height: 100%;
             background: var(--vintage-envelope);
-            border-radius: 4px;
+            border-radius: 6px;
             box-shadow: var(--shadow-3d);
             transform-style: preserve-3d;
         }
@@ -189,18 +189,19 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.08) 0%, transparent 40%);
-            border-radius: 4px;
+            background: linear-gradient(to top, rgba(0,0,0,0.06) 0%, transparent 30%);
+            border-radius: 6px;
             pointer-events: none;
             z-index: 4;
         }
 
+        /* Premium Portrait Flap Architecture */
         .envelope-flap-3d {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 54%;
+            height: 35%;
             background: var(--vintage-dark-fold);
             clip-path: polygon(0 0, 100% 0, 50% 100%);
             transform-origin: top;
@@ -210,10 +211,10 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* Opening Wax Seal Button */
+        /* Opening Wax Seal Button centered perfectly at the flap tip */
         .wax-seal {
             position: absolute;
-            top: 54%;
+            top: 35%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 44px;
@@ -236,7 +237,7 @@
         .outer-inscription {
             position: absolute;
             width: 100%;
-            bottom: 22%;
+            bottom: 15%;
             text-align: center;
             z-index: 3;
             pointer-events: none;
@@ -258,31 +259,33 @@
             font-weight: 600;
         }
 
-        /* --- Fixed Aspect Ratio 3D Interior Card Architecture --- */
+        /* --- Beautifully Scaled 3D Interior Card Architecture --- */
         .premium-card-interior {
             position: absolute;
             width: 92%;
-            height: 560px; /* Fixed formal vertical proportion to prevent structural collapse */
-            bottom: 4%;
+            height: 92%; 
+            top: 4%;
             left: 4%;
             background: #ffffff;
-            border: 2px solid var(--gold-solid);
-            padding: 12px;
-            transform: translateY(0) translateZ(-10px) scale(0.95);
+            border: 1px solid var(--gold-solid);
+            padding: 8px;
+            transform: translateY(0) translateZ(-10px) scale(0.98);
             opacity: 0;
             z-index: 1;
             transition: all 1.1s cubic-bezier(0.25, 1, 0.5, 1);
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 4px;
         }
 
-        /* Safe responsive graphic frame rules */
+        /* Responsive image asset rules */
         .original-invitation-image {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            border-radius: 2px;
         }
 
         /* State Modifiers for 3D Reveal Trigger */
@@ -297,12 +300,12 @@
             transform: translate(-50%, -50%) scale(0);
         }
 
-        /* Structural Pop-up Slideout Mechanics */
+        /* Fixed Centered 3D Pop-forward Lift Mechanics */
         .stage-3d.unboxed .premium-card-interior {
             opacity: 1;
-            transform: translateY(-260px) translateZ(100px) scale(1);
+            transform: translateY(0) translateZ(120px) scale(1.04); /* Keeps card exactly centered while popping forward */
             z-index: 20;
-            box-shadow: 0 30px 70px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.35);
         }
 
         @keyframes elegantFadeIn {
@@ -317,8 +320,7 @@
 
     <!-- STAGE 1: PORTAL GUEST IDENTIFICATION -->
     <div class="gate-wrapper" id="portalStage">
-        <!-- Replaced with pure authentic Arabic string to eliminate system boxes -->
-        <div class="arabic-header">اَلسَّلَامُ عَلَيْكُمْ</div>
+        <div class="arabic-header">اَلسَّলَامُ عَلَيْكُمْ</div>
         
         <!-- High-End Detailed Vector Islamic Mandala & Star Ornament -->
         <div class="islamic-emblem-container">
@@ -355,7 +357,7 @@
                     <div class="guest-name-luxury" id="insertedName">Guest</div>
                 </div>
 
-                <!-- Rigid 3D Card Architecture holding image.png safely -->
+                <!-- Balanced Portrait Card Architecture holding image.png safely -->
                 <div class="premium-card-interior">
                     <img src="image.png" alt="Invitation Card" class="original-invitation-image">
                 </div>
